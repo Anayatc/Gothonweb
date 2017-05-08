@@ -46,4 +46,3 @@ class GameEngine(object):
         web.seeother("/game")
 
 if __name__ == "__main__":
-    app.run()
