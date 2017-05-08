@@ -1,5 +1,5 @@
 from nose.tools import *
-from ex47.game import Room
+from map import *
 
 
 def test_room():
@@ -20,11 +20,6 @@ def test_room_paths():
     assert_equal(center.go('south'), south)
 
 
-def test_weapons():
-    gun = Room("Gun", "Test gun is weapon")
-    assert_equal(gun.weapons, {})
-
-
 def test_map():
     start = Room("Start", "You can go west and down a hole.")
     west = Room("Trees", "There are trees here, you can go east.")
@@ -37,3 +32,11 @@ def test_map():
     assert_equal(start.go('west'), west)
     assert_equal(start.go('west').go('east'), start)
     assert_equal(start.go('down').go('up'), start)
+
+
+def test_gothon_game_map():
+    assert_equal(START.go('shoot!'), generic_death)
+    assert_equal(START.go('dodge!'), generic_death)
+
+    room = START.go('tell a joke')
+    assert_equal(room, laser_weapon_armory)
