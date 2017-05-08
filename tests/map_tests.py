@@ -1,5 +1,5 @@
 from nose.tools import *
-from map import *
+from Gothonweb.map import *
 
 
 def test_room():
